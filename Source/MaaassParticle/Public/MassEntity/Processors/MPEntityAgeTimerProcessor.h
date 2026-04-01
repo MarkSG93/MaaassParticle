@@ -26,6 +26,5 @@ private:
 	/**
 	 * Query selecting entities ready for animation state synchronization.
 	 */
-	UPROPERTY()
 	FMassEntityQuery EntityQuery;
 };

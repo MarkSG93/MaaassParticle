@@ -12,6 +12,7 @@
 #include "NiagaraSystemInstanceController.h"
 #include "AnimToTexture/MPAnimToTextureDataAsset.h"
 #include "NiagaraDataInterfaceLODBAT.h"
+#include "NiagaraFunctionLibrary.h"
 
 AMPSpawner::AMPSpawner()
 {
@@ -203,16 +204,13 @@ void AMPSpawner::UpdateNiagaraComponent()
 				}
 			}
 
-			UNiagaraDataInterface* NDI = NiagaraComponent->GetDataInterface(TEXT("LODBAT"));
-			if (NDI)
+			UNiagaraDataInterfaceLODBAT* NDILODBAT = UNiagaraFunctionLibrary::GetDataInterface<UNiagaraDataInterfaceLODBAT>(NiagaraComponent, FName(TEXT("LODBAT")));
+			if (NDILODBAT)
 			{
-				if (UNiagaraDataInterfaceLODBAT* NDILODBAT = Cast<UNiagaraDataInterfaceLODBAT>(NDI))
+				if (NDILODBAT->MPAnimToTextureDataAsset != AnimToTextureDataAsset)
 				{
-					if (NDILODBAT->MPAnimToTextureDataAsset != AnimToTextureDataAsset)
-					{
-						NDILODBAT->MPAnimToTextureDataAsset = AnimToTextureDataAsset;
-						NDILODBAT->MarkRenderDataDirty();
-					}
+					NDILODBAT->MPAnimToTextureDataAsset = AnimToTextureDataAsset;
+					NDILODBAT->MarkRenderDataDirty();
 				}
 			}
 

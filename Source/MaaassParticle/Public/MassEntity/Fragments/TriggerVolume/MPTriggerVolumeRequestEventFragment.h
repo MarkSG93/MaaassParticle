@@ -16,3 +16,9 @@ struct MAAASSPARTICLE_API FMPTriggerVolumeRequestEventFragment : public FMassFra
 	UPROPERTY()
 	TArray<FStateTreeEvent> PendingEvents;
 };
+
+template<>
+struct TMassFragmentTraits<FMPTriggerVolumeRequestEventFragment>
+{
+	static constexpr bool AuthorAcceptsItsNotTriviallyCopyable = true;
+};

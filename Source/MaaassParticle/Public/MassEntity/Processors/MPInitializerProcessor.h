@@ -55,6 +55,5 @@ protected:
 
 private:
 	/** Query that selects entities tagged for initialization. */
-	UPROPERTY()
 	FMassEntityQuery EntityQuery;
 };

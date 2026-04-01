@@ -22,4 +22,4 @@ void FMaaassParticleEditorModule::ShutdownModule()
 
 #undef LOCTEXT_NAMESPACE
 	
-IMPLEMENT_MODULE(FMaaassParticleEditorModule, MaaassParticle)
+IMPLEMENT_MODULE(FMaaassParticleEditorModule, MaaassParticleEditor)

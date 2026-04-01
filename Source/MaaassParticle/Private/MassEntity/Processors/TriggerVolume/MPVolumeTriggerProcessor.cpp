@@ -52,7 +52,7 @@ void UMPVolumeTriggerProcessor::Execute(FMassEntityManager& EntityManager, FMass
     {
         return;
     }
-    EntityQuery.ForEachEntityChunk(EntityManager, Context, [this, &EntityManager, StateTreeSubsystem, SignalSubsystem](FMassExecutionContext& ChunkContext)
+    EntityQuery.ForEachEntityChunk(Context, [this, &EntityManager, StateTreeSubsystem, SignalSubsystem](FMassExecutionContext& ChunkContext)
     {
         const TConstArrayView<FTransformFragment> LocationList = ChunkContext.GetFragmentView<FTransformFragment>();
         const TArrayView<FMPTriggerVolumeEventFragment> InteractionFragmentList = ChunkContext.GetMutableFragmentView<FMPTriggerVolumeEventFragment>();
@@ -110,7 +110,7 @@ void UMPVolumeTriggerProcessor::Execute(FMassEntityManager& EntityManager, FMass
                         SignalSubsystem->SignalEntity(WakeUpSignal, Entity);
                         if (FStateTreeInstanceData* InstanceData = StateTreeSubsystem->GetInstanceData(InstanceHandle))
                         {
-                            FStateTreeMinimalExecutionContext StateTreeContext(*StateTreeSubsystem, *StateTreeAsset, *InstanceData);
+                            FStateTreeMinimalExecutionContext StateTreeContext(TNotNull<UObject*>(StateTreeSubsystem), TNotNull<const UStateTree*>(StateTreeAsset), *InstanceData);
 
                             const double SendTime = FPlatformTime::Seconds();
                             for (const FStateTreeEvent& Event : EventFragment.PendingEvents)

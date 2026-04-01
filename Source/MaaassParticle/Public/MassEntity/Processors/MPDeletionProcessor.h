@@ -43,7 +43,6 @@ protected:
 
 private:
 	/** Query that selects entities tagged for pending deletion. */
-	UPROPERTY()
 	FMassEntityQuery EntityQuery;
 
 protected:

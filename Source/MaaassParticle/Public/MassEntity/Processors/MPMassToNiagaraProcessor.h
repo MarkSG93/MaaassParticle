@@ -41,7 +41,6 @@ protected:
 	virtual void Execute(FMassEntityManager& EntityManager, FMassExecutionContext& Context) override;
 
 private:
-	UPROPERTY()
 	FMassEntityQuery EntityQuery;
 
 };
