@@ -221,7 +221,7 @@ void TMPHierarchicalBoundsHashGrid3D<ItemType>::RemoveItemFromCell(int32 ItemInd
 {
     if (FCell* Cell = CellsByLevel[Level].Find(CellCoords))
     {
-        Cell->ItemIndices.RemoveSingleSwap(ItemIndex, false); // Use fast unordered removal since order doesn't matter.
+        Cell->ItemIndices.RemoveSingleSwap(ItemIndex, EAllowShrinking::No); // Use fast unordered removal since order doesn't matter.
         if (Cell->ItemIndices.IsEmpty())
         {
             CellsByLevel[Level].Remove(CellCoords);
@@ -236,7 +236,7 @@ int32 TMPHierarchicalBoundsHashGrid3D<ItemType>::Add(const ItemType& Item, const
     int32 ItemIndex;
     if (FreeItemIndices.Num() > 0)
     {
-        ItemIndex = FreeItemIndices.Pop(false);
+        ItemIndex = FreeItemIndices.Pop(EAllowShrinking::No);
         Items[ItemIndex] = FItem(Item);
     }
     else

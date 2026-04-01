@@ -20,3 +20,9 @@ struct MAAASSPARTICLE_API FMPTriggerVolumeEventFragment : public FMassFragment
 	UPROPERTY()
 	TObjectPtr<UMPTriggerVolumeEventData> InteractionDefinition = nullptr;
 };
+
+template<>
+struct TMassFragmentTraits<FMPTriggerVolumeEventFragment>
+{
+	static constexpr bool AuthorAcceptsItsNotTriviallyCopyable = true;
+};

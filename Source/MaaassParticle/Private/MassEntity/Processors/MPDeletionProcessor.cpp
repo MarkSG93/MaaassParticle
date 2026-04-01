@@ -36,7 +36,7 @@ void UMPDeletionProcessor::Execute(FMassEntityManager& EntityManager, FMassExecu
 	EntitiesToDestroyThisFrame.Reserve(MaxEntitiesToDestroyPerFrame);
 
 	// Iterate through the entities to be destroyed.
-	EntityQuery.ForEachEntityChunk(EntityManager, Context, [this, &EntitiesToDestroyThisFrame](FMassExecutionContext& ChunkContext)
+	EntityQuery.ForEachEntityChunk(Context, [this, &EntitiesToDestroyThisFrame](FMassExecutionContext& ChunkContext)
 	{
 		const TConstArrayView<FMassEntityHandle> EntitiesInChunk = ChunkContext.GetEntities();
 		for (const FMassEntityHandle& Entity : EntitiesInChunk)

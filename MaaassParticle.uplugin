@@ -10,7 +10,7 @@
 	"DocsURL": "https://github.com/DevDingDangDong/MaaassParticle/blob/main/Docs/MaaassParticle%20Plugin%20Documentation.md",
 	"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/1f1ad989-1f70-4c8c-8ca05a3ffa55bd48",
 	"SupportURL": "devdingdangdong@gmail.com",
-	"EngineVersion": "5.6.0",
+	"EngineVersion": "5.7.0",
 	"CanContainContent": true,
 	"IsBetaVersion": true,
 	"Installed": true,

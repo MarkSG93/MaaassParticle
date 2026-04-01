@@ -144,5 +144,3 @@ void MPWidgetModule::OnMapChanged_LevelEditor(UWorld* World, EMapChangeType Chan
         }
     }
 }
-
-IMPLEMENT_MODULE(MPWidgetModule, MaaassParticleEditor)
