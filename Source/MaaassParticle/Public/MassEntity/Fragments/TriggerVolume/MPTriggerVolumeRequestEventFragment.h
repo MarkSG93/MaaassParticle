@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "MassEntityTypes.h"
-#include "MassCommonTypes.h"
 #include "MPTriggerVolumeEventData.h"
 #include "MPTriggerVolumeRequestEventFragment.generated.h"
 
@@ -14,7 +13,7 @@ struct MAAASSPARTICLE_API FMPTriggerVolumeRequestEventFragment : public FMassFra
 	GENERATED_BODY()
 
 	UPROPERTY()
-	TArray<FStateTreeEvent> PendingEvents;
+	TArray<FStateTreeEvent> PendingEvents; // @TODO - Figure out how to give the same functionality without the non trivial type
 };
 
 template<>
